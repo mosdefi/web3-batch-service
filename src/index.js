@@ -4,11 +4,11 @@ require('dotenv').config()
 
 const provider = process.env.PROVIDER_URL;
 const etherscanApiKey = process.env.ETHERSCAN_API_KEY;
+const port = process.env.PORT || 3000
 
 const express = require('express');
 const app = express();
 app.use(express.json());
-const port = 3000;
 
 app.listen(port, () => {
   console.log(`web3-batch-server listening at http://localhost:${port}`);
