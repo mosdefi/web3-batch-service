@@ -1,0 +1,25 @@
+{
+  "name": "web3-batch-service",
+  "version": "1.0.0",
+  "description": "a simple wrapper for web3-batch-call",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d dist",
+    "start": "npm run build && node dist"
+  },
+  "keywords": [],
+  "author": "mosdefi <mosdefi@protonmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.12.8",
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "regenerator-runtime": "^0.13.7",
+    "web3-batch-call": "^1.0.6"
+  }
+}
