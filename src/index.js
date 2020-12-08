@@ -20,6 +20,7 @@ app.post('/', async (req, res) => {
 
 async function web3BatchCall(contracts) {
   const batchCall = new BatchCall({
+    groupByNamespace: true,
     provider,
     etherscan: {
       apiKey: etherscanApiKey,
