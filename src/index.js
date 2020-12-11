@@ -4,10 +4,19 @@ require('dotenv').config()
 
 const provider = process.env.PROVIDER_URL;
 const etherscanApiKey = process.env.ETHERSCAN_API_KEY;
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3000;
 
 const express = require('express');
 const app = express();
+const batchCall = new BatchCall({
+  groupByNamespace: true,
+  provider,
+  etherscan: {
+    apiKey: etherscanApiKey,
+    delay: 300,
+  },
+});
+
 app.use(express.json());
 
 app.listen(port, () => {
@@ -19,14 +28,5 @@ app.post('/', async (req, res) => {
 });
 
 async function web3BatchCall(contracts) {
-  const batchCall = new BatchCall({
-    groupByNamespace: true,
-    provider,
-    etherscan: {
-      apiKey: etherscanApiKey,
-      delay: 300,
-    },
-  });
-  
   return await batchCall.execute(contracts);
 }
